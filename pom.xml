@@ -6,7 +6,7 @@
 
     <groupId>com.xazhao</groupId>
     <artifactId>whisper</artifactId>
-    <version>${whisper.revision}</version>
+    <version>${revision}</version>
 
     <!-- 打包方式 -->
     <packaging>pom</packaging>
@@ -34,7 +34,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- 项目版本 -->
-        <whisper.revision>2024.8.5-SNAPSHOT</whisper.revision>
+        <revision>2024.8.5-SNAPSHOT</revision>
         <!-- JDK版本 -->
         <java.version>17</java.version>
         <!-- Spring Boot版本 -->
@@ -60,7 +60,7 @@
             <dependency>
                 <groupId>com.xazhao</groupId>
                 <artifactId>whisper-dependencies</artifactId>
-                <version>${whisper.revision}</version>
+                <version>${revision}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

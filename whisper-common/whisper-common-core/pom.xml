@@ -6,10 +6,12 @@
     <parent>
         <groupId>com.xazhao</groupId>
         <artifactId>whisper-common</artifactId>
-        <version>2024.8.5-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>whisper-common-core</artifactId>
+    <!-- 打包方式 -->
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

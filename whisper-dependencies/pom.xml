@@ -6,7 +6,7 @@
 
     <groupId>com.xazhao</groupId>
     <artifactId>whisper-dependencies</artifactId>
-    <version>${whisper.revision}</version>
+    <version>${revision}</version>
 
     <!-- 打包方式 -->
     <packaging>pom</packaging>
@@ -23,7 +23,7 @@
 
     <properties>
         <!-- 项目版本 -->
-        <whisper.revision>2024.8.5-SNAPSHOT</whisper.revision>
+        <revision>2024.8.5-SNAPSHOT</revision>
         <!-- maven插件相关 -->
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
 
@@ -143,14 +143,14 @@
             <dependency>
                 <groupId>com.xazhao</groupId>
                 <artifactId>whisper-common-core</artifactId>
-                <version>${whisper.revision}</version>
+                <version>${revision}</version>
             </dependency>
 
             <!-- 系统模块 -->
             <dependency>
                 <groupId>com.xazhao</groupId>
                 <artifactId>whisper-system</artifactId>
-                <version>${whisper.revision}</version>
+                <version>${revision}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
