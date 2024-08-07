@@ -18,6 +18,6 @@ public class SystemApplication {
     public static void main(String[] args) {
 
         SpringApplication.run(SystemApplication.class, args);
-        log.info("(♥◠‿◠)ﾉﾞ  tripartite-pay启动成功...   ლ(´ڡ`ლ)ﾞ");
+        log.info("(♥◠‿◠)ﾉﾞ  whisper-system启动成功...   ლ(´ڡ`ლ)ﾞ");
     }
 }
