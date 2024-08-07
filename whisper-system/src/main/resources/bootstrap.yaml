@@ -1,0 +1,36 @@
+server:
+  port: 49082
+
+spring:
+  application:
+    # 服务名称，与nacos配置中心的配置文件的名字相同，例如nacos中配置文件名为：whisper-system-dev.yaml
+    name: whisper-system
+
+  # 上面nacos中配置文件其后缀为-dev表示激活后缀为dev的配置文件，若这里配置的是prod则配置文件名称为whisper-system-prod.yaml
+  profiles:
+    active:
+      - dev
+
+  # nacos配置
+  cloud:
+    nacos:
+      # 配置中心
+      config:
+        enabled: true
+        server-addr: xxx.x.x.x:8848
+        # 配置文件名称后缀，如：whisper-system-dev.yaml
+        file-extension: yaml
+        # 开发环境，命名空间
+        namespace: xxx-xx
+        username: xx
+        password: xx
+      # 服务发现
+      discovery:
+        server-addr: xxx.x.x.x:8848
+        namespace: xxx-xx
+        username: xx
+        password: xx
+
+  #关闭SpringBoot的banner
+  main:
+    banner-mode: off
