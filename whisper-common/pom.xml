@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>whisper-common-core</module>
+        <module>whisper-core</module>
     </modules>
 
     <properties>
@@ -31,4 +31,17 @@
         </developer>
     </developers>
 
+    <dependencies>
+        <!-- hutool工具包 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 </project>

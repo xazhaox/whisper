@@ -9,12 +9,12 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>whisper-system</artifactId>
+    <artifactId>whisper-gateway</artifactId>
     <!-- 打包方式 -->
     <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
-    <description>系统模块：用户、部门、权限、数据字典、安全等业务</description>
+    <description>服务网关，基于Spring Cloud Gateway实现</description>
     <url>https://github.com/xazhaox/whisper</url>
     <developers>
         <developer>
@@ -29,6 +29,12 @@
     </properties>
 
     <dependencies>
+        <!-- Gateway网关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
         <!-- Config 配置中心客户端 -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -41,9 +47,22 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- Spring Cloud客户端负载均衡器，在gateway 4.1.4这个版本中，若没有显式指定这个依赖就会导致无法处理 lb://URI，从而返回503错误 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.xazhao</groupId>
             <artifactId>whisper-core</artifactId>
+            <!-- 需要排除web依赖，gateway组件中的spring-boot-starter-webflux和web出现冲突 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>
