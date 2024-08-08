@@ -11,12 +11,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class InvokeResult {
+public class InvokeResult<T> {
 
     /**
      * 返回值数据
      */
-    private Object data;
+    private T data;
 
     /**
      * 异常信息
@@ -38,53 +38,53 @@ public class InvokeResult {
      */
     private String token;
 
-    public static InvokeResult success(Object data) {
-        InvokeResult result = new InvokeResult();
-        result.data = data;
-        result.code = HttpStatus.SUCCESS;
-        return result;
+    public InvokeResult(T data, Integer status) {
+        this.data = data;
+        this.code = status;
     }
 
-    public static InvokeResult success(Object data, String returnMsg) {
-        InvokeResult result = new InvokeResult();
-        result.data = data;
-        result.code = HttpStatus.SUCCESS;
-        result.returnMsg = returnMsg;
-        return result;
+    public InvokeResult(Integer status, String message) {
+        this.code = status;
+        this.returnMsg = message;
     }
 
-    public static InvokeResult success() {
-        InvokeResult result = new InvokeResult();
-        result.code = HttpStatus.SUCCESS;
-        return result;
+    public InvokeResult(T data, Integer status, String message) {
+        this.data = data;
+        this.code = status;
+        this.returnMsg = message;
     }
 
-    public static InvokeResult failure(Object data, String message) {
-        InvokeResult result = new InvokeResult();
-        result.data = data;
-        result.code = HttpStatus.ERROR;
-        result.returnMsg = message;
-        return result;
+    public InvokeResult(Integer status, String returnMsg, String errorMsg) {
+        this.code = status;
+        this.returnMsg = returnMsg;
+        this.errorMsg = errorMsg;
     }
 
-    public static InvokeResult failure(String message) {
-        InvokeResult result = new InvokeResult();
-        result.code = HttpStatus.ERROR;
-        result.returnMsg = message;
-        return result;
+    public static <T> InvokeResult<T> success(T data) {
+        return new InvokeResult<>(data, HttpStatus.SUCCESS);
     }
 
-    public static InvokeResult failure() {
-        InvokeResult result = new InvokeResult();
-        result.code = HttpStatus.ERROR;
-        return result;
+    public static <T> InvokeResult<T> success(T data, String message) {
+        return new InvokeResult<>(data, HttpStatus.SUCCESS, message);
     }
 
-    public static InvokeResult failure(String returnMsg, String errorMsg) {
-        InvokeResult result = new InvokeResult();
-        result.code = HttpStatus.ERROR;
-        result.returnMsg = returnMsg;
-        result.setErrorMsg(errorMsg);
-        return result;
+    public static <T> InvokeResult<T> success() {
+        return new InvokeResult<>(HttpStatus.SUCCESS, "Successful");
+    }
+
+    public static <T> InvokeResult<T> failure(T data, String message) {
+        return new InvokeResult<>(data, HttpStatus.ERROR, message);
+    }
+
+    public static <T> InvokeResult<T> failure(String message) {
+        return new InvokeResult<>(HttpStatus.ERROR, message);
+    }
+
+    public static <T> InvokeResult<T> failure() {
+        return new InvokeResult<>(HttpStatus.ERROR, "Request failed");
+    }
+
+    public static <T> InvokeResult<T> failure(String returnMsg, String errorMsg) {
+        return new InvokeResult<>(HttpStatus.ERROR, returnMsg, errorMsg);
     }
 }

@@ -26,7 +26,7 @@ public class SystemController {
     private String nacosGroup;
 
     @GetMapping("/insert")
-    public InvokeResult userInsert() {
+    public InvokeResult<Map<String, Object>> userInsert() {
 
         Map<String, Object> parameterMap = new HashMap<>(16);
         parameterMap.put("returnMsg", "插入用户成功！");
