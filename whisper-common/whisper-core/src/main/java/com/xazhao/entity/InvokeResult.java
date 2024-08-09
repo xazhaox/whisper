@@ -64,12 +64,20 @@ public class InvokeResult<T> {
         return new InvokeResult<>(data, HttpStatus.SUCCESS);
     }
 
+    public static <T> InvokeResult<T> success(String message) {
+        return new InvokeResult<>(HttpStatus.SUCCESS, message);
+    }
+
     public static <T> InvokeResult<T> success(T data, String message) {
         return new InvokeResult<>(data, HttpStatus.SUCCESS, message);
     }
 
     public static <T> InvokeResult<T> success() {
         return new InvokeResult<>(HttpStatus.SUCCESS, "Successful");
+    }
+
+    public static <T> InvokeResult<T> failure(T data) {
+        return new InvokeResult<>(data, HttpStatus.SUCCESS);
     }
 
     public static <T> InvokeResult<T> failure(T data, String message) {
