@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 绑定namespace -->
+<mapper namespace="com.xazhao.system.mapper.UsersMapper">
+
+    <resultMap type="com.xazhao.system.entity.Users" id="UsersMap">
+        <result property="id" column="id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="nickCode" column="nick_code"/>
+        <result property="passwordHash" column="password_hash"/>
+        <result property="salt" column="salt"/>
+        <result property="telephone" column="telephone"/>
+        <result property="email" column="email"/>
+        <result property="profilePhotoUrl" column="profile_photo_url"/>
+        <result property="certification" column="certification"/>
+        <result property="realName" column="real_name"/>
+        <result property="idCardNo" column="id_card_no"/>
+        <result property="userRole" column="user_role"/>
+        <result property="placeOrg" column="place_org"/>
+        <result property="placeDept" column="place_dept"/>
+        <result property="dutyBlock" column="duty_block"/>
+        <result property="state" column="state"/>
+        <result property="deleted" column="deleted"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+        <result property="lockVersion" column="lock_version"/>
+        <result property="gmtCreate" column="gmt_create"/>
+        <result property="gmtModified" column="gmt_modified"/>
+        <result property="temp" column="temp"/>
+    </resultMap>
+
+    <!-- sql片段 -->
+    <sql id="selectSysUsersVo">
+        select id,
+               nick_name,
+               nick_code,
+               password_hash,
+               salt,
+               telephone,
+               email,
+               profile_photo_url,
+               certification,
+               real_name,
+               id_card_no,
+               user_role,
+               place_org,
+               place_dept,
+               duty_block,
+               state,
+               deleted,
+               last_login_time,
+               lock_version,
+               gmt_create,
+               gmt_modified,
+               temp
+        from sys_users
+    </sql>
+
+    <sql id="usersVo">
+        id, nick_name, nick_code, password_hash, salt, telephone, email, profile_photo_url, certification, real_name, id_card_no,
+        user_role, place_org, place_dept, duty_block, state, deleted, last_login_time, lock_version, gmt_create, gmt_modified, temp
+    </sql>
+
+    <select id="getUserOne" resultMap="UsersMap" databaseId="mysql">
+        select
+        <include refid="usersVo"/>
+        from sys_users where nick_code = #{nickCode}
+    </select>
+
+    <select id="getUserList" resultMap="UsersMap" resultType="java.util.List" databaseId="mysql">
+        <include refid="selectSysUsersVo"/>
+    </select>
+</mapper>
+
