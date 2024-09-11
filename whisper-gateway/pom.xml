@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xazhao</groupId>
+        <artifactId>whisper</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>whisper-gateway</artifactId>
+    <!-- 打包方式 -->
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>服务网关，基于Spring Cloud Gateway实现</description>
+    <url>https://github.com/xazhaox/whisper</url>
+    <developers>
+        <developer>
+            <name>Zhao.An</name>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- Gateway网关 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+        </dependency>
+
+        <!-- Spring Cloud客户端负载均衡器，在gateway 4.1.4这个版本中，若没有显式指定这个依赖就会导致无法处理 lb://URI，从而返回503错误 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.xazhao</groupId>
+            <artifactId>whisper-core</artifactId>
+            <!-- 需要排除web依赖，gateway组件中的spring-boot-starter-webflux和web出现冲突 -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- 安全组件 -->
+        <!-- <dependency> -->
+        <!--     <groupId>com.xazhao</groupId> -->
+        <!--     <artifactId>whisper-security</artifactId> -->
+        <!-- </dependency> -->
+    </dependencies>
+</project>
