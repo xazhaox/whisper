@@ -1,0 +1,17 @@
+server:
+  port: 49083
+
+spring:
+  application:
+    # 服务名称，与nacos配置中心的配置文件的名字相同
+    name: @artifactId@
+
+  # 导入其他yaml配置文件
+  config:
+    import:
+      # 导入nacos配置
+      - classpath:nacos.yaml
+      # 导入nacos配置中心的配置文件，此配置文件中管理持久层所有的配置
+      - nacos:datasource.yaml
+      - nacos:security.yaml
+      - nacos:cache.yaml

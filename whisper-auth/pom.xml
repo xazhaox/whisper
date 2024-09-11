@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xazhao</groupId>
+        <artifactId>whisper</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>whisper-auth</artifactId>
+    <!-- 打包方式 -->
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>认证授权模块，权限认证</description>
+    <url>https://github.com/xazhaox/whisper</url>
+    <developers>
+        <developer>
+            <name>Zhao.An</name>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- 缓存组件 -->
+        <dependency>
+            <groupId>com.xazhao</groupId>
+            <artifactId>whisper-cache</artifactId>
+        </dependency>
+
+        <!-- 系统组件 -->
+        <dependency>
+            <groupId>com.xazhao</groupId>
+            <artifactId>whisper-system</artifactId>
+        </dependency>
+
+        <!-- jwt-api -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+        </dependency>
+
+        <!-- jwt-impl -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- jwt-jackson -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+        </dependency>
+
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
