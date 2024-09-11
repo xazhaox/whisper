@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 绑定namespace -->
+<mapper namespace="com.xazhao.logging.mapper.OperationLogMapper">
+
+    <resultMap type="com.xazhao.logging.service.OperationLog" id="SysOperationLogMap">
+        <result property="logId" column="log_id"/>
+        <result property="title" column="title"/>
+        <result property="businessType" column="business_type"/>
+        <result property="method" column="method"/>
+        <result property="requestMethod" column="request_method"/>
+        <result property="operatorType" column="operator_type"/>
+        <result property="operationName" column="operation_name"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="operationUrl" column="operation_url"/>
+        <result property="operationIp" column="operation_ip"/>
+        <result property="operationLocation" column="operation_location"/>
+        <result property="operationParam" column="operation_param"/>
+        <result property="jsonResult" column="json_result"/>
+        <result property="status" column="status"/>
+        <result property="errorMsg" column="error_msg"/>
+        <result property="operationTime" column="operation_time"/>
+    </resultMap>
+
+    <!-- sql片段 -->
+    <sql id="selectSysOperationLogVo">
+        select
+          log_id, title, business_type, method, request_method, operator_type, operation_name, dept_name, operation_url, operation_ip, operation_location, operation_param, json_result, status, error_msg, operation_time
+        from sys_operation_log
+    </sql>
+</mapper>
+

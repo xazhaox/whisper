@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 绑定namespace -->
+<mapper namespace="com.xazhao.logging.mapper.LoginLogMapper">
+
+    <resultMap type="com.xazhao.logging.service.LoginLog" id="SysLoginLogMap">
+        <result property="loginId" column="login_id"/>
+        <result property="userCode" column="user_code"/>
+        <result property="userName" column="user_name"/>
+        <result property="status" column="status"/>
+        <result property="ipAddress" column="ip_address"/>
+        <result property="loginLocation" column="login_location"/>
+        <result property="browser" column="browser"/>
+        <result property="os" column="os"/>
+        <result property="msg" column="msg"/>
+        <result property="engine" column="engine"/>
+        <result property="mobile" column="mobile"/>
+        <result property="platform" column="platform"/>
+        <result property="loginTime" column="login_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <!-- sql片段 -->
+    <sql id="selectSysLoginLogVo">
+        select login_id,
+               user_code,
+               user_name,
+               status,
+               ip_address,
+               login_location,
+               browser,
+               os,
+               msg,
+               engine,
+               mobile,
+               platform,
+               login_time,
+               remark
+        from sys_login_log
+    </sql>
+
+    <sql id="loginLogFieldVo">
+        login_id, user_code, user_name, status, ip_address, login_location, browser, os, msg, engine, mobile, platform, login_time, remark
+    </sql>
+
+    <insert id="insertLoginInfo" parameterType="com.xazhao.logging.service.LoginLog" databaseId="mysql">
+        insert into sys_login_log
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="loginId != null and loginId != ''">login_id,</if>
+            <if test="userCode != null and userCode != ''">user_code,</if>
+            <if test="userName != null and userName != ''">user_name,</if>
+            <if test="status != null and status != ''">status,</if>
+            <if test="ipAddress != null and ipAddress != ''">ip_address,</if>
+            <if test="loginLocation != null and loginLocation != ''">login_location,</if>
+            <if test="browser != null and browser != ''">browser,</if>
+            <if test="os != null and os != ''">os,</if>
+            <if test="msg != null and msg != ''">msg,</if>
+            <if test="engine != null and engine != ''">engine,</if>
+            <if test="mobile != null and mobile != ''">mobile,</if>
+            <if test="platform != null and platform != ''">platform,</if>
+            login_time,
+            <if test="remark != null and remark != ''">remark,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="loginId != null and loginId != ''">#{loginId,jdbcType=NULL},</if>
+            <if test="userCode != null and userCode != ''">#{userCode,jdbcType=NULL},</if>
+            <if test="userName != null and userName != ''">#{userName,jdbcType=NULL},</if>
+            <if test="status != null and status != ''">#{status,jdbcType=NULL},</if>
+            <if test="ipAddress != null and ipAddress != ''">#{ipAddress,jdbcType=NULL},</if>
+            <if test="loginLocation != null and loginLocation != ''">#{loginLocation,jdbcType=NULL},</if>
+            <if test="browser != null and browser != ''">#{browser,jdbcType=NULL},</if>
+            <if test="os != null and os != ''">#{os,jdbcType=NULL},</if>
+            <if test="msg != null and msg != ''">#{msg,jdbcType=NULL},</if>
+            <if test="engine != null and engine != ''">#{engine,jdbcType=NULL},</if>
+            <if test="mobile != null and mobile != ''">#{mobile,jdbcType=NULL},</if>
+            <if test="platform != null and platform != ''">#{platform,jdbcType=NULL},</if>
+            date_format(now(), '%Y/%m/%d %H:%i:%S'),
+            <if test="remark != null and remark != ''">#{remark,jdbcType=NULL},</if>
+        </trim>
+    </insert>
+
+</mapper>
+
