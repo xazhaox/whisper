@@ -2,7 +2,7 @@
 
 🎉 whisper-vue配套微服务后台
 
-
+![GitHub Repo stars](https://img.shields.io/github/stars/codercup/unibest?style=flat&logo=github)
 
 ## 架构图
 
