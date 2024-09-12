@@ -1,6 +1,7 @@
 package com.xazhao.auth;
 
 import cn.hutool.json.JSON;
+import cn.hutool.json.JSONConfig;
 import cn.hutool.json.JSONUtil;
 import com.xazhao.cache.core.RedisCacheStr;
 import jakarta.annotation.Resource;
@@ -125,57 +126,64 @@ public class RedisCacheStrTest {
     @Test
     public void toStringPretty() {
 
-        System.out.println(JSONUtil.parse(USER_AN).toStringPretty());
-        System.out.println(JSONUtil.parse(USER_ZHAO).toStringPretty());
+        // 显示null值
+        JSONConfig config = new JSONConfig().setIgnoreNullValue(false);
+
+        System.out.println(JSONUtil.parse(USER_AN, config).toStringPretty());
+        System.out.println(JSONUtil.parse(USER_ZHAO, config).toStringPretty());
     }
 
-    private static final String USER_AN = "{\n" +
-            "    \"id\": 1,\n" +
-            "    \"nick_name\": \"Zhao.An\",\n" +
-            "    \"nick_code\": \"W100001\",\n" +
-            "    \"password_hash\": \"12345678\",\n" +
-            "    \"salt\": null,\n" +
-            "    \"telephone\": \"17xxxxxx23\",\n" +
-            "    \"email\": \"Zhao.An@126.com\",\n" +
-            "    \"profile_photo_url\": null,\n" +
-            "    \"certification\": 1,\n" +
-            "    \"real_name\": \"Zhao.An\",\n" +
-            "    \"id_card_no\": \"6103xxxxxxx\",\n" +
-            "    \"user_role\": null,\n" +
-            "    \"place_org\": null,\n" +
-            "    \"place_dept\": null,\n" +
-            "    \"duty_block\": null,\n" +
-            "    \"state\": \"ACTIVE\",\n" +
-            "    \"deleted\": 0,\n" +
-            "    \"last_login_time\": \"2024/08/12 14:28:36\",\n" +
-            "    \"lock_version\": null,\n" +
-            "    \"gmt_create\": \"2024/8/12 14:28:39\",\n" +
-            "    \"gmt_modified\": \"2024/08/12 14:28:42\",\n" +
-            "    \"temp\": null\n" +
-            "  }";
+    private static final String USER_AN = """
+            {
+                "id": 1,
+                "nick_name": "Zhao.An",
+                "nick_code": "W100001",
+                "password_hash": "12345678",
+                "salt": null,
+                "telephone": "17xxxxxx23",
+                "email": "Zhao.An@126.com",
+                "profile_photo_url": null,
+                "certification": 1,
+                "real_name": "Zhao.An",
+                "id_card_no": "6103xxxxxxx",
+                "user_role": null,
+                "place_org": null,
+                "place_dept": null,
+                "duty_block": null,
+                "state": "ACTIVE",
+                "deleted": 0,
+                "last_login_time": "2024/08/12 14:28:36",
+                "lock_version": null,
+                "gmt_create": "2024/8/12 14:28:39",
+                "gmt_modified": "2024/08/12 14:28:42",
+                "temp": null
+            }
+            """;
 
-    private static final String USER_ZHAO = "{\n" +
-            "    \"id\": 2,\n" +
-            "    \"nick_name\": \"Zhao.An\",\n" +
-            "    \"nick_code\": \"W100002\",\n" +
-            "    \"password_hash\": \"12345678\",\n" +
-            "    \"salt\": null,\n" +
-            "    \"telephone\": \"176932409823\",\n" +
-            "    \"email\": \"Zhao.An@126.com\",\n" +
-            "    \"profile_photo_url\": null,\n" +
-            "    \"certification\": 1,\n" +
-            "    \"real_name\": \"Zhao.An\",\n" +
-            "    \"id_card_no\": \"610324xxxxx\",\n" +
-            "    \"user_role\": null,\n" +
-            "    \"place_org\": null,\n" +
-            "    \"place_dept\": null,\n" +
-            "    \"duty_block\": null,\n" +
-            "    \"state\": \"ACTIVE\",\n" +
-            "    \"deleted\": 0,\n" +
-            "    \"last_login_time\": \"2024/08/12 14:28:36\",\n" +
-            "    \"lock_version\": null,\n" +
-            "    \"gmt_create\": \"2024/08/12 14:28:39\",\n" +
-            "    \"gmt_modified\": \"2024/08/12 14:28:42\",\n" +
-            "    \"temp\": null\n" +
-            "  }";
+    private static final String USER_ZHAO = """
+            {
+                "id": 2,
+                "nick_name": "Zhao.An",
+                "nick_code": "W100002",
+                "password_hash": "12345678",
+                "salt": null,
+                "telephone": "176932409823",
+                "email": "Zhao.An@126.com",
+                "profile_photo_url": null,
+                "certification": 1,
+                "real_name": "Zhao.An",
+                "id_card_no": "610324xxxxx",
+                "user_role": null,
+                "place_org": null,
+                "place_dept": null,
+                "duty_block": null,
+                "state": "ACTIVE",
+                "deleted": 0,
+                "last_login_time": "2024/08/12 14:28:36",
+                "lock_version": null,
+                "gmt_create": "2024/08/12 14:28:39",
+                "gmt_modified": "2024/08/12 14:28:42",
+                "temp": null
+            }
+            """;
 }
