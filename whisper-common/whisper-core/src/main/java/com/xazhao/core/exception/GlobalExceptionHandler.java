@@ -29,8 +29,8 @@ public class GlobalExceptionHandler {
      * @param <T> 返回类型
      * @return InvokeResult
      */
-    @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     @ResponseBody
+    @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     public <T> InvokeResult<T> handleValidationExceptions(MethodArgumentNotValidException ex) {
 
         StringBuilder returnMsg = new StringBuilder("校验未通过项：");
@@ -46,8 +46,8 @@ public class GlobalExceptionHandler {
      * @param <T> 返回类型
      * @return InvokeResult
      */
-    @ExceptionHandler(value = {ServiceException.class})
     @ResponseBody
+    @ExceptionHandler(value = {ServiceException.class})
     public <T> InvokeResult<T> serviceException(ServiceException ex) {
 
         return InvokeResult.failure(ex.getMessage());
@@ -60,8 +60,8 @@ public class GlobalExceptionHandler {
      * @param <T> 返回类型
      * @return InvokeResult
      */
-    @ExceptionHandler(value = {SystemException.class})
     @ResponseBody
+    @ExceptionHandler(value = {SystemException.class})
     public <T> InvokeResult<T> serviceException(SystemException ex) {
 
         return InvokeResult.failure(ex.getMessage());
@@ -70,7 +70,8 @@ public class GlobalExceptionHandler {
     /**
      * 处理系统异常，兜底处理所有的一切
      */
-    @ExceptionHandler(value = Exception.class)
+    @ResponseBody
+    @ExceptionHandler(value = {Exception.class})
     public <T> InvokeResult<T> defaultExceptionHandler(Throwable ex) {
 
         log.error("[Exception：]", ex);
