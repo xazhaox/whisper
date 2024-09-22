@@ -16,7 +16,7 @@ public class SpringApplicationContextConfiguration {
     @Bean
     public SpringApplicationContext springApplicationContext() {
         SpringApplicationContext springContextHolder = new SpringApplicationContext();
-        log.info("SpringContextHolder creation is successful");
+        log.info("SpringApplicationContext creation is successful");
         return springContextHolder;
     }
 }
