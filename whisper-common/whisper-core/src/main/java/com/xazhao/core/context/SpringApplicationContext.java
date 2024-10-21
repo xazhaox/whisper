@@ -235,7 +235,8 @@ public class SpringApplicationContext implements BeanFactoryPostProcessor, Appli
     }
 
     /**
-     * 获取当前的环境配置，当有多个环境配置时，只获取第一个
+     * 获取当前的环境配置，当有多个环境配置时，只获取第一个<br>
+     * 获取所有的环配置，调用{@link SpringApplicationContext#getActiveProfiles()}
      *
      * @return 当前的环境配置
      */
