@@ -15,8 +15,8 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 支付策略工厂，通过工厂类获取具体的策略实现（具体的策略类）
@@ -42,7 +42,7 @@ public class PayStrategyFactory implements ApplicationListener<ContextRefreshedE
      * Map的key就是前端传回来的支付平台的标识，如：支付宝就是Alipay（前后端约定Map的key）
      * 缺点：每接入一个支付平台就需要在这个Map中手动的注册一个策略的实现，每次都需要改动这个工厂方法
      */
-    private static Map<String, PayStrategy> registerStrategyMap = new HashMap<>(16);
+    private static Map<String, PayStrategy> registerStrategyMap = new ConcurrentHashMap<>(16);
 
     static {
         registerStrategyMap.put("Alipay", new AlipayServiceImpl());
@@ -55,7 +55,7 @@ public class PayStrategyFactory implements ApplicationListener<ContextRefreshedE
      * 将所有的支付平台（具体的策略实现）定义到这个枚举类中，在项目初始化的时候将所有的支付策略都注册到这个Map中
      * 缺点：每次接入一个新的支付平台就需要到这个策略枚举中新增一个枚举类型，每次接入都需要改动这个枚举类
      */
-    private static Map<String, PayStrategy> enumStrategyMap = new HashMap<>(16);
+    private static Map<String, PayStrategy> enumStrategyMap = new ConcurrentHashMap<>(16);
 
     /**
      * <h3>在Spring所有的容器加载完成之后执行该方法</h3>
@@ -88,7 +88,7 @@ public class PayStrategyFactory implements ApplicationListener<ContextRefreshedE
      * <h3>注意：Map的key必须是{@link String}类型的</h3>
      */
     @Resource
-    private Map<String, PayStrategy> payStrategyMap = new HashMap<>(16);
+    private Map<String, PayStrategy> payStrategyMap = new ConcurrentHashMap<>(16);
 
     /**
      * <h3>获取支付策略（支付平台）获取到的实际上是PayStrategy的实现，也就是具体的策略实现类</h3>
