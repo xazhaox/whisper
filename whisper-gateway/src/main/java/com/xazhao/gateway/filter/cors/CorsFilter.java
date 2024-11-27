@@ -17,7 +17,7 @@ import org.springframework.web.util.pattern.PathPatternParser;
 @Configuration
 public class CorsFilter {
 
-    private static final String ALLOWED_HEADERS = "*";
+    private static final String ALLOWED_METHOD = "*";
 
     private static final String ALLOWED_ORIGIN = "*";
 
@@ -29,7 +29,7 @@ public class CorsFilter {
     public CorsWebFilter corsWebFilter() {
         CorsConfiguration corsConfig = new CorsConfiguration();
         // 允许的请求方式
-        corsConfig.addAllowedMethod(ALLOWED_HEADERS);
+        corsConfig.addAllowedMethod(ALLOWED_METHOD);
         // 允许的来源
         corsConfig.addAllowedOriginPattern(ALLOWED_ORIGIN);
         // 允许的请求头参数
