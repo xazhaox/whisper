@@ -28,8 +28,8 @@ public class JavaThreadPoolConfiguration implements ThreadPoolParameter {
      */
     @Bean
     public ThreadPoolExecutor threadPoolExecutor() {
-        // 线程工厂
-        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat(THREAD_NAME_PATTERN).build();
+        // 线程工厂，设置线程名称
+        ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat(JAVA_THREAD_NAME_PATTERN).build();
         // 阻塞队列
         ArrayBlockingQueue<Runnable> arrayBlockingQueue = new ArrayBlockingQueue<>(QUEUE_CAPACITY);
         log.info("Java ThreadPoolExecutor creation is successful");

@@ -4,19 +4,23 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @Description Created on 2024/08/30.
+ * 文件通用错误码
+ *
+ * @Description Created on 2024/10/28.
  * @Author Zhao.An
  */
+
 @Getter
 @AllArgsConstructor
-public enum SystemErrorCode implements ErrorCode {
+public enum FileErrorCode implements ErrorCode {
 
     /**
-     * HTTP 客户端错误
+     * 通知保存失败
      */
-    APPLICATION_CONTEXT_ERROR("APPLICATION_CONTEXT_ERROR", "applicationContext 初始化错误");
+    DOWNLOAD_FAILED("DOWNLOAD_FAILED", "文件下载失败");
 
     private String code;
+
 
     private String message;
 

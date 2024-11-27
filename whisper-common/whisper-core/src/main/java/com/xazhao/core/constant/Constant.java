@@ -44,4 +44,9 @@ public class Constant {
      * 通用失败标识
      */
     public static final String FAIL_STR = "FAIL";
+
+    /**
+     * 通用成功标识
+     */
+    public static final Integer THREAD_OUT_TIME = 120;
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * <ol>
  *     <li>ServiceException 业务异常</li>
  *     <li>SystemException 系统异常</li>
+ *     <li>FileException 文件异常</li>
  * </ol>
  *
  * @Description Created on 2024/08/21.
@@ -31,7 +32,7 @@ public class GlobalExceptionHandler {
      */
     @ResponseBody
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
-    public <T> InvokeResult<T> handleValidationExceptions(MethodArgumentNotValidException ex) {
+    public <T> InvokeResult<T> methodArgumentNotValidExceptions(MethodArgumentNotValidException ex) {
 
         StringBuilder returnMsg = new StringBuilder("校验未通过项：");
         ex.getBindingResult().getAllErrors().forEach(error -> returnMsg.append(error.getDefaultMessage()).append("，"));
@@ -48,13 +49,13 @@ public class GlobalExceptionHandler {
      */
     @ResponseBody
     @ExceptionHandler(value = {ServiceException.class})
-    public <T> InvokeResult<T> serviceException(ServiceException ex) {
+    public <T> InvokeResult<T> serviceExceptions(ServiceException ex) {
 
         return InvokeResult.failure(ex.getMessage());
     }
 
     /**
-     * 业务异常
+     * 系统异常
      *
      * @param ex  SystemException
      * @param <T> 返回类型
@@ -62,7 +63,21 @@ public class GlobalExceptionHandler {
      */
     @ResponseBody
     @ExceptionHandler(value = {SystemException.class})
-    public <T> InvokeResult<T> serviceException(SystemException ex) {
+    public <T> InvokeResult<T> systemExceptions(SystemException ex) {
+
+        return InvokeResult.failure(ex.getMessage());
+    }
+
+    /**
+     * 文件服务异常
+     *
+     * @param ex  FileException
+     * @param <T> 返回类型
+     * @return InvokeResult
+     */
+    @ResponseBody
+    @ExceptionHandler(value = {FileException.class})
+    public <T> InvokeResult<T> fileExceptions(FileException ex) {
 
         return InvokeResult.failure(ex.getMessage());
     }
