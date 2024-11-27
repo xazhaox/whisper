@@ -14,6 +14,11 @@ import lombok.Getter;
 public enum AuthErrorCode implements ErrorCode {
 
     /**
+     * 登录失败
+     */
+    LOGIN_FAILED("LOGIN_FAILED", "登录失败"),
+
+    /**
      * 用户状态不可用
      */
     USER_STATUS_IS_NOT_ACTIVE("USER_STATUS_IS_NOT_ACTIVE", "用户状态不可用"),

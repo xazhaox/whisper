@@ -110,6 +110,8 @@ public class RedisCacheTest {
         redisCache.setCache("ZSetName", "Zhao.Jia", 3.52D);
         redisCache.setCache("ZSetName", "Zhao", 90.243D);
 
+        redisCache.setCache("ZSetAge", "28", 23.243D);
+
         redisCache.setCache("ZSetNameExpire", "users", 56.243D, 30L);
 
         Set<Object> zSetName = redisCache.rangeZSet("ZSetName", 2, 3);

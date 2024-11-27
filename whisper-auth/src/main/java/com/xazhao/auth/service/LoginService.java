@@ -4,6 +4,9 @@ import com.xazhao.core.entity.InvokeResult;
 import com.xazhao.auth.entity.LoginParam;
 import com.xazhao.auth.entity.LoginUser;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @Description Created on 2024/08/20.
  * @Author Zhao.An
@@ -26,4 +29,11 @@ public interface LoginService {
      * @return 登录信息（Token）
      */
     InvokeResult<LoginUser> weChatLogin(LoginParam loginParam);
+
+    /**
+     * 测试Mybatis Map返回的Key是否转为小写
+     *
+     * @return Map
+     */
+    List<Map<String, Object>> pageMapQuery();
 }
