@@ -33,4 +33,20 @@ public class WeChatServiceImpl implements PayStrategy {
 
         return InvokeResult.success(resultMap, pay.getPayType() + " 支付.");
     }
+
+    /**
+     * 支付之前需要执行的
+     */
+    @Override
+    public void beforePay() {
+        log.info("支付之前执行.");
+    }
+
+    /**
+     * 支付之后需要执行的
+     */
+    @Override
+    public void afterPay() {
+        log.info("支付之后执行.");
+    }
 }

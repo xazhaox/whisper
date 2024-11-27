@@ -2,6 +2,8 @@ package com.xazhao.pay.strategy;
 
 import com.xazhao.core.entity.InvokeResult;
 import com.xazhao.pay.entity.Pay;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
@@ -14,6 +16,8 @@ import java.util.Map;
 
 public interface PayStrategy {
 
+    Logger log = LoggerFactory.getLogger(PayStrategy.class);
+
     /**
      * 支付平台实现各自的支付功能
      *
@@ -22,4 +26,18 @@ public interface PayStrategy {
      * @return 支付结果
      */
     InvokeResult<Map<String, Object>> pay(Pay pay, Map<String, Object> resultMap);
+
+    /**
+     * 支付之前需要执行的
+     */
+    default void beforePay() {
+        log.info("pay before.");
+    }
+
+    /**
+     * 支付之后需要执行的
+     */
+    default void afterPay() {
+        log.info("pay after.");
+    }
 }
