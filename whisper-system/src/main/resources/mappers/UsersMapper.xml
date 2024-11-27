@@ -70,5 +70,12 @@
     <select id="getUserList" resultMap="UsersMap" resultType="java.util.List" databaseId="mysql">
         <include refid="selectSysUsersVo"/>
     </select>
+
+    <select id="pageMapQuery" resultType="java.util.Map">
+        select
+            ID, NICK_NAME, NICK_CODE, PASSWORD_HASH, SALT, TELEPHONE, EMAIL, PROFILE_PHOTO_URL, CERTIFICATION, REAL_NAME, ID_CARD_NO,
+            USER_ROLE, PLACE_ORG, PLACE_DEPT, DUTY_BLOCK, STATE, DELETED, LAST_LOGIN_TIME, LOCK_VERSION, GMT_CREATE, GMT_MODIFIED, TEMP
+        from sys_users limit 10
+    </select>
 </mapper>
 

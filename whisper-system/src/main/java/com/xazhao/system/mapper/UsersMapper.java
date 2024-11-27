@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description Created on 2024/08/09.
@@ -31,4 +32,12 @@ public interface UsersMapper {
      * @return 用户信息数据集
      */
     List<Users> getUserList(@Param("users") UsersDTO users);
+
+    /**
+     * 测试Mybatis Map返回的Key是否转为小写
+     *
+     * @return Map
+     */
+    @SuppressWarnings("MybatisXMapperMethodInspection")
+    List<Map<String, Object>> pageMapQuery();
 }
