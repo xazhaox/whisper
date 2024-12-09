@@ -1,4 +1,4 @@
-package com.xazhao.core.entity;
+package com.xazhao.core.response;
 
 import com.xazhao.core.constant.HttpStatus;
 import lombok.Getter;

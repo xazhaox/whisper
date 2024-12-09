@@ -1,6 +1,6 @@
 package com.xazhao.pay.service;
 
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.pay.entity.Pay;
 
 import java.util.Map;

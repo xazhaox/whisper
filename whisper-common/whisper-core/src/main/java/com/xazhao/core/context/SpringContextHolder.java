@@ -1,7 +1,7 @@
 package com.xazhao.core.context;
 
 import cn.hutool.core.lang.TypeReference;
-import com.xazhao.core.exception.ServiceException;
+import com.xazhao.core.exception.BusinessException;
 import com.xazhao.core.exception.SystemErrorCode;
 import com.xazhao.core.exception.SystemException;
 import org.springframework.beans.BeansException;
@@ -33,7 +33,7 @@ import java.util.Map;
  */
 
 @Component
-public class SpringApplicationContext implements BeanFactoryPostProcessor, ApplicationContextAware {
+public class SpringContextHolder implements BeanFactoryPostProcessor, ApplicationContextAware {
 
     /**
      * "@PostConstruct"注解标记的类中，由于ApplicationContext还未加载，导致空指针<br>
@@ -49,13 +49,13 @@ public class SpringApplicationContext implements BeanFactoryPostProcessor, Appli
     @SuppressWarnings("NullableProblems")
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        SpringApplicationContext.beanFactory = beanFactory;
+        SpringContextHolder.beanFactory = beanFactory;
     }
 
     @SuppressWarnings("NullableProblems")
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
-        SpringApplicationContext.applicationContext = applicationContext;
+        SpringContextHolder.applicationContext = applicationContext;
     }
 
     /**
@@ -84,9 +84,9 @@ public class SpringApplicationContext implements BeanFactoryPostProcessor, Appli
      * 获取{@link ConfigurableListableBeanFactory}
      *
      * @return {@link ConfigurableListableBeanFactory}
-     * @throws ServiceException 当上下文非ConfigurableListableBeanFactory抛出异常
+     * @throws BusinessException 当上下文非ConfigurableListableBeanFactory抛出异常
      */
-    public static ConfigurableListableBeanFactory getConfigurableBeanFactory() throws ServiceException {
+    public static ConfigurableListableBeanFactory getConfigurableBeanFactory() throws BusinessException {
         final ConfigurableListableBeanFactory factory;
         if (null != beanFactory) {
             factory = beanFactory;
@@ -236,7 +236,7 @@ public class SpringApplicationContext implements BeanFactoryPostProcessor, Appli
 
     /**
      * 获取当前的环境配置，当有多个环境配置时，只获取第一个<br>
-     * 获取所有的环配置，调用{@link SpringApplicationContext#getActiveProfiles()}
+     * 获取所有的环配置，调用{@link SpringContextHolder#getActiveProfiles()}
      *
      * @return 当前的环境配置
      */
@@ -277,7 +277,7 @@ public class SpringApplicationContext implements BeanFactoryPostProcessor, Appli
             DefaultSingletonBeanRegistry registry = (DefaultSingletonBeanRegistry) factory;
             registry.destroySingleton(beanName);
         } else {
-            throw new ServiceException("Can not unregister bean, the factory is not a DefaultSingletonBeanRegistry!", SystemErrorCode.APPLICATION_CONTEXT_ERROR);
+            throw new BusinessException("Can not unregister bean, the factory is not a DefaultSingletonBeanRegistry!", SystemErrorCode.APPLICATION_CONTEXT_ERROR);
         }
     }
 

@@ -1,14 +1,14 @@
 package com.xazhao.pay.exception;
 
 import com.xazhao.core.exception.ErrorCode;
-import com.xazhao.core.exception.ServiceException;
+import com.xazhao.core.exception.BusinessException;
 
 /**
  * @Description Created on 2024/08/28.
  * @Author Zhao.An
  */
 
-public class PayException extends ServiceException {
+public class PayException extends BusinessException {
 
     public PayException(ErrorCode errorCode) {
         super(errorCode);

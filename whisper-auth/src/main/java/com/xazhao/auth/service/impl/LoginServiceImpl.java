@@ -8,7 +8,7 @@ import com.xazhao.auth.exception.AuthenticationException;
 import com.xazhao.auth.security.JwtSecurity;
 import com.xazhao.auth.service.LoginService;
 import com.xazhao.core.concurrent.AsyncRunnableTask;
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.core.utils.DigestUtils;
 import com.xazhao.logging.constant.Login;
 import com.xazhao.logging.factory.AsyncFactory;

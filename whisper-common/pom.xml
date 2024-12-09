@@ -14,10 +14,15 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>whisper-api</module>
         <module>whisper-core</module>
         <module>whisper-datasource</module>
         <module>whisper-cache</module>
         <module>whisper-log</module>
+        <module>whisper-nacos</module>
+        <module>whisper-lock</module>
+        <module>whisper-rpc</module>
+        <module>whisper-mq</module>
     </modules>
 
     <name>${project.artifactId}</name>
@@ -109,10 +114,28 @@
             <artifactId>gson</artifactId>
         </dependency>
 
+        <!-- mapstruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+
         <!-- 解析客户端操作系统、浏览器等 -->
         <dependency>
             <groupId>eu.bitwalker</groupId>
             <artifactId>UserAgentUtils</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

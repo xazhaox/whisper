@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Slf4j
 @Configuration
-public class SpringThreadPoolConfiguration implements AsyncConfigurer, ThreadPoolParameter {
+public class ThreadPoolTaskConfiguration implements AsyncConfigurer, ThreadPoolParameter {
 
     public static final String SPRING_THREAD_POOL_TASK_EXECUTOR = "executorServiceSpring";
 

@@ -2,7 +2,7 @@ package com.xazhao.logging.async;
 
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.http.useragent.UserAgent;
-import com.xazhao.core.context.SpringApplicationContext;
+import com.xazhao.core.context.SpringContextHolder;
 import com.xazhao.core.utils.AddressUtils;
 import com.xazhao.logging.constant.Login;
 import com.xazhao.logging.service.LoginLog;
@@ -61,7 +61,7 @@ public class LogTimerTask extends TimerTask {
             loginLog.setStatus(Login.FAIL);
         }
         // 插入数据
-        LoginLogService loginLogService = SpringApplicationContext.getBean(LoginLogService.class);
+        LoginLogService loginLogService = SpringContextHolder.getBean(LoginLogService.class);
         loginLogService.insertLoginInfo(loginLog);
     }
 

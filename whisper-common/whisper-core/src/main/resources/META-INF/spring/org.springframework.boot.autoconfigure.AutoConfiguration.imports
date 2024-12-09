@@ -1,5 +1,5 @@
-com.xazhao.core.concurrent.JavaThreadPoolConfiguration
-com.xazhao.core.concurrent.SpringThreadPoolConfiguration
+com.xazhao.core.concurrent.ThreadPoolConfiguration
+com.xazhao.core.concurrent.ThreadPoolTaskConfiguration
 com.xazhao.core.concurrent.AsyncRunnableTask
-com.xazhao.core.context.SpringApplicationContextConfiguration
+com.xazhao.core.context.SpringContextHolderConfiguration
 com.xazhao.core.exception.GlobalExceptionHandler

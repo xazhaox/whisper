@@ -1,6 +1,6 @@
 package com.xazhao.pay.strategy.impl;
 
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.pay.entity.Pay;
 import com.xazhao.pay.strategy.PayStrategy;
 import lombok.extern.slf4j.Slf4j;

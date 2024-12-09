@@ -12,7 +12,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum ServiceErrorCode implements ErrorCode {
+public enum BusinessErrorCode implements ErrorCode {
 
     /**
      * HTTP 客户端错误

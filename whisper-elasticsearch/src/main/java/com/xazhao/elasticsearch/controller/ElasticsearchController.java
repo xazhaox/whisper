@@ -1,6 +1,6 @@
 package com.xazhao.elasticsearch.controller;
 
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.elasticsearch.service.ElasticsearchService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

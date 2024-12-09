@@ -1,7 +1,7 @@
 package com.xazhao.security.handler;
 
 import cn.hutool.json.JSONUtil;
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -9,7 +9,7 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.alipay.api.response.AlipayTradePagePayResponse;
 import com.xazhao.core.constant.Constant;
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.pay.config.AlipayClientConfiguration;
 import com.xazhao.pay.config.AlipayProperties;
 import com.xazhao.pay.constant.PayConstant;

@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
 
+whisper-common/whisper-core/src/main/resources/core.yaml
+
 # Eclipse
 .project
 .classpath

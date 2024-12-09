@@ -1,6 +1,6 @@
 package com.xazhao.auth.service;
 
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.auth.entity.LoginParam;
 import com.xazhao.auth.entity.LoginUser;
 

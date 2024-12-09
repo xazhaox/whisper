@@ -1,8 +1,8 @@
 package com.xazhao.system.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.xazhao.core.entity.InvokeResult;
-import com.xazhao.core.entity.PageParameter;
+import com.xazhao.core.response.InvokeResult;
+import com.xazhao.core.request.PageParameter;
 import com.xazhao.system.dto.UsersDTO;
 import com.xazhao.system.entity.Users;
 import com.xazhao.system.service.UsersService;

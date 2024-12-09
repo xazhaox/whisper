@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Configuration
-public class JavaThreadPoolConfiguration implements ThreadPoolParameter {
+public class ThreadPoolConfiguration implements ThreadPoolParameter {
 
     /**
      * 创建ThreadPoolExecutor线程池

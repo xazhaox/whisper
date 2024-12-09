@@ -2,7 +2,6 @@ package com.xazhao.auth.security;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
-import com.xazhao.cache.constant.CacheConstant;
 import com.xazhao.auth.constant.Constant;
 import com.xazhao.cache.core.RedisCache;
 import io.jsonwebtoken.*;
@@ -18,7 +17,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.Map;
 
-import static com.xazhao.cache.constant.CacheConstant.LOGIN_HASH_TABLE_KEY;
+import static com.xazhao.auth.constant.Constant.LOGIN_HASH_TABLE_KEY;
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 /**
@@ -79,7 +78,7 @@ public class JwtSecurity implements InitializingBean {
     public String generateToken(Map<String, Object> claims) {
         // 使用雪花算法ID作为该token标识，可改为用户编码或用户ID作为token标识
         claims.put(Constant.USER_KEY, IdUtil.getSnowflake().nextIdStr());
-        String userId = String.valueOf(claims.get(CacheConstant.USER_ID));
+        String userId = String.valueOf(claims.get(Constant.USER_ID));
         // 判断redis中是否有该key
         Boolean isExists = redisCache.hasKey(LOGIN_HASH_TABLE_KEY, userId);
         if (Boolean.TRUE.equals(isExists)) {
@@ -120,7 +119,7 @@ public class JwtSecurity implements InitializingBean {
                 .setExpiration(new Date(System.currentTimeMillis() + expireTime));
         if (CollUtil.isNotEmpty(claims)) {
             // 将Jwt有效负载设置为由指定名称值对填充的JSON声明实例
-            jwt.claim(CacheConstant.AUTHORITIES_KEY, claims);
+            jwt.claim(Constant.AUTHORITIES_KEY, claims);
         }
         return jwt.compact();
     }

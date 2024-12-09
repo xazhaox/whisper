@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
-public class SpringApplicationContextConfiguration {
+public class SpringContextHolderConfiguration {
 
     @Bean
-    public SpringApplicationContext springApplicationContext() {
-        SpringApplicationContext springContextHolder = new SpringApplicationContext();
-        log.info("SpringApplicationContext creation is successful");
+    public SpringContextHolder springApplicationContext() {
+        SpringContextHolder springContextHolder = new SpringContextHolder();
+        log.info("SpringContextHolder creation is successful");
         return springContextHolder;
     }
 }

@@ -1,7 +1,7 @@
 package com.xazhao.pay.factory;
 
 import cn.hutool.core.util.ObjectUtil;
-import com.xazhao.core.context.SpringApplicationContext;
+import com.xazhao.core.context.SpringContextHolder;
 import com.xazhao.pay.enums.PayStrategyEnum;
 import com.xazhao.pay.exception.PayErrorCode;
 import com.xazhao.pay.exception.PayException;
@@ -71,7 +71,7 @@ public class PayStrategyFactory implements ApplicationListener<ContextRefreshedE
     public void onApplicationEvent(@NotNull ContextRefreshedEvent event) {
         for (PayStrategyEnum e : PayStrategyEnum.values()) {
             // 通过Bean的名称获取Bean注册到Map中，Bean的名称如：@Component("WeChat")，名称为WeChat与枚举中的className保持一致
-            PayStrategy payStrategy = SpringApplicationContext.getBean(e.getClassName());
+            PayStrategy payStrategy = SpringContextHolder.getBean(e.getClassName());
             enumStrategyMap.put(e.getCode(), payStrategy);
         }
     }

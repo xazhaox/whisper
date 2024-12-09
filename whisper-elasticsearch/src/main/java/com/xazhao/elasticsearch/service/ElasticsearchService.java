@@ -1,6 +1,6 @@
 package com.xazhao.elasticsearch.service;
 
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 
 import java.util.Map;
 

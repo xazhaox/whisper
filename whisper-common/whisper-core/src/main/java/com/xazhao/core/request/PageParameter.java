@@ -1,4 +1,4 @@
-package com.xazhao.core.entity;
+package com.xazhao.core.request;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class PageParameter {
+public class PageParameter extends BaseRequest {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 页码

@@ -1,7 +1,7 @@
 package com.xazhao.pay.service;
 
 import com.xazhao.pay.constant.PayConventions;
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.pay.entity.Pay;
 import com.xazhao.pay.exception.PayErrorCode;
 import com.xazhao.pay.exception.PayException;

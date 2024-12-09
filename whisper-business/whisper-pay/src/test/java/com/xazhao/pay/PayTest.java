@@ -1,7 +1,7 @@
 package com.xazhao.pay;
 
 import cn.hutool.json.JSONUtil;
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.pay.entity.Pay;
 import com.xazhao.pay.enums.PayStrategyEnum;
 import com.xazhao.pay.service.TripartitePayService;

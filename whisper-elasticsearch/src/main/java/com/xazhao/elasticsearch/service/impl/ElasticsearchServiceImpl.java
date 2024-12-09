@@ -1,6 +1,6 @@
 package com.xazhao.elasticsearch.service.impl;
 
-import com.xazhao.core.entity.InvokeResult;
+import com.xazhao.core.response.InvokeResult;
 import com.xazhao.elasticsearch.mapper.ElasticsearchMapper;
 import com.xazhao.elasticsearch.service.ElasticsearchService;
 import jakarta.annotation.Resource;
