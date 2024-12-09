@@ -6,6 +6,7 @@
 
     <groupId>com.xazhao</groupId>
     <artifactId>whisper</artifactId>
+    <!-- 统一版本管理 -->
     <version>${revision}</version>
 
     <!-- 打包方式 -->
