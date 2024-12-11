@@ -9,13 +9,15 @@ spring:
         server-addr: ${com.xazhao.nacos.server.url}
         # 配置文件名称后缀，如：whisper-system-dev.yaml
         file-extension: yaml
-        # 命名空间，这里是开发环境，若是上面的profiles后缀设置为其他，如：配置为prod则需要将该命名空间改为prod这个后缀文件所在的命名空间
-        namespace: dev
         username: ${com.xazhao.nacos.server.username}
         password: ${com.xazhao.nacos.server.password}
+        # 命名空间，这里是开发环境，若是上面的profiles后缀设置为其他，如：配置为prod则需要将该命名空间改为prod这个后缀文件所在的命名空间
+        namespace: ${com.xazhao.nacos.server.namespace}
+        group: ${com.xazhao.nacos.server.group}
       # 服务发现
       discovery:
         server-addr: ${com.xazhao.nacos.server.url}
-        namespace: dev
         username: ${com.xazhao.nacos.server.username}
         password: ${com.xazhao.nacos.server.password}
+        namespace: ${com.xazhao.nacos.server.namespace}
+        group: ${com.xazhao.nacos.server.group}
