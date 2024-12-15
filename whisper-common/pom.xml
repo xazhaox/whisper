@@ -90,6 +90,18 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <!-- common-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+        </dependency>
+
+        <!-- Java标准的Collections API提供了相当好的补充 -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+        </dependency>
+
         <!-- guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
