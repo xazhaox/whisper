@@ -15,10 +15,11 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 /**
+ * The type Xss http servlet request wrapper.
+ *
  * @Description Created on 2024/08/19.
  * @Author Zhao.An
  */
-
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     /**
@@ -26,6 +27,11 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
      */
     private final static HTMLFilter HTML_FILTER = new HTMLFilter();
 
+    /**
+     * Instantiates a new Xss http servlet request wrapper.
+     *
+     * @param request the request
+     */
     public XssHttpServletRequestWrapper(HttpServletRequest request) {
         super(request);
     }
